@@ -1,12 +1,14 @@
-function App() {
+import { useLocation } from "react-router-dom";
+import Landing from "./Components/Landing/Landing";
+import Chatbot from "./Components/Chatbot/Chatbot";
+
+const App = () => {
+  const {pathname} = useLocation();
   return (
-    <main className="container m-auto grid min-h-screen grid-rows-[auto,1fr,auto] px-4">
-      <header className="text-xl font-bold leading-[4rem]">EntrevistAIdor</header>
-      <section className="py-8">👋</section>
-      <footer className="text-center leading-[4rem] opacity-70">
-        © {new Date().getFullYear()} EntrevistAIdor
-      </footer>
-    </main>
+    <div className="">
+      {pathname === "/" && <Landing />}
+      {pathname === "/chat" && <Chatbot />}
+    </div>
   );
 }
 
